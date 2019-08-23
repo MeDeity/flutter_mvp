@@ -17,18 +17,18 @@ class IndexPageState extends BasePageState<IndexPage, IndexPagePresenter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("MVP框架使用测试"),
+        title: Text("MVP Framewrok Test"),
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget>[
-          Text("服务器返回值:${result ?? "请点击请求网络查看此数据是否发生变化"}"),
+          Text("server back :${result ?? "click button to request network"}"),
           FlatButton(
               onPressed: () {
                 presenter.requestUserInfo();
               },
-              child: Text("点击请求网络"))
+              child: Text("request user info"))
         ],
       ),
     );
@@ -36,7 +36,7 @@ class IndexPageState extends BasePageState<IndexPage, IndexPagePresenter> {
 
   void updateResponseView(ResponseUserInfoEntity entity) {
     setState(() {
-      result = "致谢${entity?.name??"神秘大佬"} - ${entity?.url??"神游远方"}";
+      result = "thanks ${entity?.name??""} - ${entity?.url??""}";
     });
   }
 

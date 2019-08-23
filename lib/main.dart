@@ -9,7 +9,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return OKToast(
       child: MaterialApp(
-        title: 'MVP框架测试',
+        title: 'MVP Framework Test',
         theme: ThemeData(
           primarySwatch: Colors.blue,
         ),
