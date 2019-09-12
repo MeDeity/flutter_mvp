@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mvp/page/widget/animated_provider.dart';
+import 'package:flutter_mvp/page/widget/bubble_tab_indicator.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
 ///
@@ -86,9 +87,16 @@ class VideoCategoryPageState extends State<VideoCategoryPage> with TickerProvide
             delegate: _MySliverPersistentHeaderDelegate(TabBar(
                 controller:_tabController,
                 isScrollable: true,
-                indicatorColor:Colors.yellow,//指示器的颜色
-                indicatorWeight:5,
+//                indicatorColor:Colors.yellow,//指示器的颜色
+//                indicatorWeight:5,
 //                indicatorPadding: const EdgeInsets.all(20),
+                indicator: BubbleTabIndicator(
+                    indicatorColor:Colors.white,
+                    indicatorRadius:10,
+                    indicatorHeight: 48,
+                    padding: const EdgeInsets.all(0.0),
+                    insets: const EdgeInsets.all(0.0),
+                ),//自定义后 indicatorWeight、indicatorColor、indicatorPadding属性会自动忽略（即设置无效）
                 labelColor:Colors.purpleAccent,
                 labelStyle: TextStyle(fontSize: 16),
                 unselectedLabelColor: Colors.grey,
@@ -101,7 +109,8 @@ class VideoCategoryPageState extends State<VideoCategoryPage> with TickerProvide
                     text: "测试2",
                   ),
                 ],
-            )),
+            ),
+            backgroundColor: Colors.blue),
           ),
           SliverFillRemaining(
             child: TabBarView(
