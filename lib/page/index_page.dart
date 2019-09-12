@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mvp/net/entity/response_user_info_entity.dart';
 import 'package:flutter_mvp/page/presenter/index_page_presenter.dart';
 import 'package:flutter_mvp/page/video/home_page.dart';
+import 'package:flutter_mvp/page/video/video_category_page.dart';
+import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:lib_mvp/mvp/base_page_state.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:lib_mvp/router/app_navigator.dart';
@@ -39,6 +41,11 @@ class IndexPageState extends BasePageState<IndexPage, IndexPagePresenter> {
                 AppNavigator.push(context, HomePage());
               },
               child: Text("首页")),
+          FlatButton(
+              onPressed: () {
+                AppNavigator.pushAndRemoveUntil(context, VideoCategoryPage());
+              },
+              child: Text("搜索页面")),
         ],
       ),
     );
@@ -75,11 +82,12 @@ class IndexPageState extends BasePageState<IndexPage, IndexPagePresenter> {
                   ClipOval(
                     child: CachedNetworkImage(
                       imageUrl: "http://www.baidu.com",
-                      placeholder: (BuildContext context, String url){
+                      placeholder: (BuildContext context, String url) {
                         return SizedBox(
-                            width: 20, height: 20, child: CupertinoActivityIndicator(
-                            radius: (20/3)
-                        ));
+                            width: 20,
+                            height: 20,
+                            child:
+                                CupertinoActivityIndicator(radius: (20 / 3)));
                       },
                       height: 20,
                       width: 20,
@@ -103,3 +111,5 @@ class IndexPageState extends BasePageState<IndexPage, IndexPagePresenter> {
     );
   }
 }
+
+

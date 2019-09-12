@@ -27,6 +27,7 @@ dependencies:
   # easy refresh
   flutter_easyrefresh: ^2.0.4
   flutter_swiper: ^1.1.6
+  azlistview: ^0.1.2
   lib_mvp:
     git:
       url: https://github.com/MeDeity/lib_mvp.git
